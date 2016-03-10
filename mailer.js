@@ -24,20 +24,6 @@ dot.templateSettings.strip = false;
 var emailTextTemplate = dot.template(tempText);
 var emailHtmlTemplate = dot.template(tempHtml);
 
-function CreateLicenseFile(license)
-{
-    var tmpobj = tmp.fileSync();
-    
-    fs.writeFile(tmpobj.name, license, function(err) {
-        if(err) {
-            console.log(err);
-            return null;
-        }
-    }); 
-    console.log(tmpobj.name)
-    return tmpobj.name;
-}
-
 function send(doc, license, collection) {
 
 	var toAddress = doc.email;
@@ -47,9 +33,7 @@ function send(doc, license, collection) {
 
 	var licData = { name: doc.name, email: doc.email, id: doc.lic_id, expiration: doc.exp_date, product: doc.product, edition: doc.edition, version: doc.version, website: websiteUrl, support: supportEmail };
 	var emailText = emailTextTemplate(licData);
-	var emailHtml = emailHtmlTemplate(licData);
-	
-    var licenseFile = CreateLicenseFile(license);
+	var emailHtml = emailHtmlTemplate(licData);	
     
 	// setup e-mail data with unicode symbols
 	var mailOptions = {
@@ -61,12 +45,7 @@ function send(doc, license, collection) {
 		subject: "Your " + doc.product + " License", // Subject line
 		text: emailText, // plaintext body	
 		html: emailHtml // html body
-	};
-    
-    if(licenseFile != null)
-    {
-        mailOptions.attachments = [{ filename: 'license.xml', path: licenseFile }];
-    }
+	};    
 
 	// send mail with defined transport object
     var sgMailer = nodemailer.createTransport(sgTransport(options));   
@@ -85,13 +64,6 @@ function send(doc, license, collection) {
 									}
 									
 									console.log("License mailed " + mailOptions.messageId);
-
-                                    fs.unlink(licenseFile, function(err) {
-                                    if (err) {
-                                        return console.error(err);
-                                    }
-                                    console.log("deleted " + licenseFile);
-                                    });
 								});					
 				}
 			});

@@ -1,8 +1,8 @@
-Your {{=it.product}} license file is attached.
+Your {{=it.product}} license key has arrived.
 
 You can use {{=it.product}} only under the terms of license agreement included with the software. Please save a copy of this email for future reference.
 
-License Id : {{=it.id}}
+License Key : {{=it.id}}
 Licensed Software : {{=it.product}} ({{=it.edition}})
 Licensed Software Version : {{=it.version}}
 License Expiration Date : {{=it.expiration}}
@@ -12,7 +12,7 @@ Email Address : {{=it.email}}
 
 The software can be downloaded from the link sent to you in a separate email.
 
-Import the attached license file into {{=it.product}}
+Using your {{=it.product}} license key
 =====================================================
 
 1. Save the license file you received in this email.
@@ -20,8 +20,8 @@ Import the attached license file into {{=it.product}}
 3. Click on License tab.
 4. Enter your Name : {{=it.name}}
 5. Enter your email address : {{=it.email}}
-6. Browse to the downloaded license file.
-7. Click on Import button.
+6. Enter your license key : {{=it.id}}
+7. Click on save button.
 
 Contact
 ======================================================
