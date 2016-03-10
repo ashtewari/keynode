@@ -1,6 +1,5 @@
 ﻿
 var fs = require('fs');
-var xc = require('xml-crypto');
 
 var settings = global.appsettings;
 var dbHost = process.env.IP || settings.get('db_host'),
