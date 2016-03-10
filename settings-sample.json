@@ -1,0 +1,20 @@
+{
+  "username": "abc@xyz.com",
+  "password": "qwerty",
+  "sender": "sender <sender@domain.com>",
+  "http_host": "127.0.0.1",
+  "http_port": "8888",
+  "db_url": "mongodb://user:pass@host:port/dbnam",
+  "db_host": "127.0.0.1",
+  "db_port": "27017",
+  "db_name": "test",
+  "tbl_name": "lic_req",
+  "private-key-file": "private.pem",
+  "polling-frequency": "5000",
+  "product_name": "MyCoolProduct",
+  "product_version": "1.0",
+  "sku_pro": "Pro",
+  "product_website":"http://www.my-cool-product.com/",
+  "product_support_email":"support@my-cool-product.com",
+  "license_duration_years":"1"
+}

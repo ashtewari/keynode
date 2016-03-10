@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>25453c58-2627-45c5-b63a-bd405dcd3fe3</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <StartupFile>index.js</StartupFile>
+    <ProjectTypeGuids>{262852C6-CD72-467D-83FE-5EEB1973A190};{F48CDB0C-A733-4163-8884-DCAA07CF69BF}</ProjectTypeGuids>
+    <Name>Licnod</Name>
+    <RootNamespace>Licnod</RootNamespace>
+    <DebuggerPort>5858</DebuggerPort>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="db.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="index.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="license.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="mailer.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\assert.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\buffer.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\child_process.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\cluster.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\console.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\crypto.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\dgram.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\dns.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\domain.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\events.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\fs.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\http.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\https.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\module.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\net.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\node.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\os.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\path.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\process.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\querystring.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\readline.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\repl.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\stream.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\stringdecoder.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\tls.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\tty.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\url.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\util.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\vm.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="nodelib\zlib.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="queue.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="README.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="requestHandlers.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="router.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="server.js" />
+    <Content Include="settings-sample.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="settings.json">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="nodelib" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>

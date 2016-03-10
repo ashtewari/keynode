@@ -1,0 +1,32 @@
+Your {{=it.product}} license file is attached.
+<br>
+<br>You can use {{=it.product}} only under the terms of license agreement included with the software. Please save a copy of this email for future reference.
+<br>
+<br>License Id : {{=it.id}}
+<br>Licensed Software : {{=it.product}} ({{=it.edition}})
+<br>Licensed Software Version : {{=it.version}}
+<br>License Expiration Date : {{=it.expiration}}
+<br>
+<br>Authorized User : {{=it.name}}
+<br>Email Address : {{=it.email}}
+<br>
+<br>The software can be downloaded from the link sent to you in a separate email.
+<br>
+<br>Import the attached license file into {{=it.product}}
+<br>=====================================================
+<br>
+<br>1. Save the license file you received in this email.
+<br>2. Click on Settings button in {{=it.product}}.
+<br>3. Click on License tab.
+<br>4. Enter your Name : {{=it.name}}
+<br>5. Enter your email address : {{=it.email}}
+<br>6. Browse to the downloaded license file.
+<br>7. Click on Import button.
+<br>
+<br>Contact
+<br>======================================================
+<br>{{=it.product}} website:
+<br>{{=it.website}}
+<br>
+<br>For technical support or any other questions related to this email, please contact:
+{{=it.support}}
