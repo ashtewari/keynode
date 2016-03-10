@@ -1,5 +1,7 @@
-﻿var fs = require('fs');
+﻿var tmp = require('tmp');
+var fs = require('fs');
 var nodemailer = require("nodemailer");
+var sgTransport = require('nodemailer-sendgrid-transport');
 
 var settings = global.appsettings;
 var username = settings.get('username'),
@@ -8,7 +10,11 @@ var username = settings.get('username'),
     websiteUrl = settings.get('product_website'),
     supportEmail = settings.get('product_support_email');    
 
-var smtpTransport;
+var options = {
+    auth: {
+        api_key: password
+    }
+}
 
 var dot = require("dot");
 var tempText = fs.readFileSync("emailTextTemplate.txt");
@@ -18,15 +24,18 @@ dot.templateSettings.strip = false;
 var emailTextTemplate = dot.template(tempText);
 var emailHtmlTemplate = dot.template(tempHtml);
 
-function create() {
-	// create reusable transport method (opens pool of SMTP connections)
-	smtpTransport = nodemailer.createTransport("SMTP", {
-		service: "Gmail",
-		auth: {
-			user: username,
-			pass: password
-		}
-	});
+function CreateLicenseFile(license)
+{
+    var tmpobj = tmp.fileSync();
+    
+    fs.writeFile(tmpobj.name, license, function(err) {
+        if(err) {
+            console.log(err);
+            return null;
+        }
+    }); 
+    console.log(tmpobj.name)
+    return tmpobj.name;
 }
 
 function send(doc, license, collection) {
@@ -40,47 +49,52 @@ function send(doc, license, collection) {
 	var emailText = emailTextTemplate(licData);
 	var emailHtml = emailHtmlTemplate(licData);
 	
+    var licenseFile = CreateLicenseFile(license);
+    
 	// setup e-mail data with unicode symbols
 	var mailOptions = {
-		messageId: doc._id,
+        messageId: doc._id,
 		from: sender, // sender address
 		to: toAddress, // list of receivers
 		bcc: username,
 		replyTo: toAddress,
 		subject: "Your " + doc.product + " License", // Subject line
 		text: emailText, // plaintext body	
-		html: emailHtml, // html body
-		attachments: [{ 'filename': 'license.xml', 'contents': license }]
+		html: emailHtml // html body
 	};
+    
+    if(licenseFile != null)
+    {
+        mailOptions.attachments = [{ filename: 'license.xml', path: licenseFile }];
+    }
 
 	// send mail with defined transport object
-	smtpTransport.sendMail(mailOptions,
-		(function (userName) {
-			return function (e, response) {
+    var sgMailer = nodemailer.createTransport(sgTransport(options));   
+	sgMailer.sendMail(mailOptions,
+		function (e, response) {
 				if (e) {
 					console.log(e);
 				} else {
 					console.log("Message sent: " + response.message);
 
-					collection.update({ _id: response.messageId }, { $set: { completed: 1 } }, { safe: true },
+					collection.update({ _id: mailOptions.messageId }, { $set: { completed: 1 } }, { safe: true },
 								function (err, objects) {
 									if (err) console.warn(err.message);
 									if (err && err.message.indexOf('E11000 ') !== -1) {
 										// this _id was already inserted in the database
 									}
 									
-									console.log("License sent to " + userName + ": " + response.messageId);
+									console.log("License mailed " + mailOptions.messageId);
+
+                                    fs.unlink(licenseFile, function(err) {
+                                    if (err) {
+                                        return console.error(err);
+                                    }
+                                    console.log("deleted " + licenseFile);
+                                    });
 								});					
 				}
-			};
-		})(doc.name)
-	);
+			});
 }
 
-function close() {
-	smtpTransport.close();
-}
-
-exports.create = create;
 exports.send = send;
-exports.close = close;

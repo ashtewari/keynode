@@ -23,6 +23,11 @@ function start(route, handle) {
 	var httpHost = process.env.IP || global.appsettings.get('http_host');
 	var httpPort = process.env.PORT || global.appsettings.get('http_port');
 	
+    if(httpHost == undefined)
+    {
+        httpHost = 'Unknown';
+    }
+    
 	console.log("Starting server on " + httpHost + ":" + httpPort);
 	http.createServer(onRequest).listen(httpPort);
 	

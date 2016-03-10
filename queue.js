@@ -24,7 +24,6 @@ function read() {
 			} else {
 
 				//todo : refactor this - async, close mailer only after ensuring that the last email has been processed
-				mailer.create();
 				for (var i = 0; i < docs.length; i++) {
 
 					//create license
@@ -37,9 +36,7 @@ function read() {
 						mailer.send(docs[i], license, collection);
 					}
 
-				};
-				mailer.close();
-				
+				};				
 			}
 		});
 	});
@@ -88,7 +85,7 @@ function write(parsedInput) {
 
 		collection.insert({
 			name: userName, email: emailAddress, lic_id: licId, lic_type: licType,
-			issue_date: issueDate, exp_date: expDate,
+			issue_date: issueDate.format("YYYY-MM-DDTHH:mm:ss.SSSSSSS"), exp_date: expDate,
 			product: productName, version: productVersion, edition: edition,
 			test: isTest, completed: isCompleted, input: parsedInput
 		}, { safe: true },
