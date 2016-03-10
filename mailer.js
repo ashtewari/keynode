@@ -1,5 +1,4 @@
-﻿var tmp = require('tmp');
-var fs = require('fs');
+﻿var fs = require('fs');
 var nodemailer = require("nodemailer");
 var sgTransport = require('nodemailer-sendgrid-transport');
 
