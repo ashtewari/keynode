@@ -1,5 +1,6 @@
-KeyNode : Issue software licenses with node.js
+KeyNode is a Node.js application to issue and verify software license keys. It uses MongoDB and SendGrid services.
+
 =========================================================
 
-Author : Ash Tewari (mailbox@ashtewari.com)
+Author : Ash Tewari
 Copyright : All Rights Reserved - Ash Tewari (2016)
