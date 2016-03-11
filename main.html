@@ -63,14 +63,28 @@
         float: left;
         margin: 10px 0 0 20px;
         }
+        .license-header {
+        background: #f0f0f2;
+        border-top: 1px solid #c6c7cc;
+        padding: 20px;
+        }
+        .license-header label {
+        color: #395870;
+        display: block;
+        font-weight: bold;
+        margin-bottom: 20px;
+        }                
     </style>    
 </head>
 
 <body>   
     <form name="input" action="issue" method="post">
+    <fieldset class="license-header">
+        <label>License Request</label>
+    </fieldset>
     <fieldset class="license-info">
         <label>
-        First Name:
+        First Name
         <input type="text" name="First Name" required>
         </label>
         <label>
