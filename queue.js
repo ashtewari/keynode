@@ -59,7 +59,8 @@ function write(parsedInput) {
 		var licId = guid.v4();
 		var issueDate = moment();
 		var expDate = moment().add('years', licYears).format("YYYY-MM-DDTHH:mm:ss.SSSSSSS");
-		
+
+		var isCompleted = 0;
 		var edition = permalink == skuPro ? "Professional" : "Basic";
 		var licType = "Standard";
 		
