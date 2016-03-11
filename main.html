@@ -2,16 +2,95 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        *,
+        *:before,
+        *:after {
+        box-sizing: border-box;
+        }
+        form {
+        border: 1px solid #c6c7cc;
+        border-radius: 5px;
+        font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+        overflow: hidden;
+        width: 240px;
+        }
+        fieldset {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        }
+        input {
+        border-radius: 5px;
+        font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0;
+        }
+        .license-info {
+        padding: 20px 20px 0 20px;
+        }
+        .license-info label {
+        color: #395870;
+        display: block;
+        font-weight: bold;
+        margin-bottom: 20px;
+        }
+        .license-info input {
+        background: #fff;
+        border: 1px solid #c6c7cc;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+        color: #636466;
+        padding: 6px;
+        margin-top: 6px;
+        width: 100%;
+        }
+        .license-action {
+        background: #f0f0f2;
+        border-top: 1px solid #c6c7cc;
+        padding: 20px;
+        }
+        .license-action .btn {
+        background: linear-gradient(#49708f, #293f50);
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+        float: left;
+        padding: 8px 16px;
+        }
+        .license-action label {
+        color: #7c7c80;
+        font-size: 12px;
+        float: left;
+        margin: 10px 0 0 20px;
+        }
+    </style>    
 </head>
 
-<body>
-    <form name="input" action="issue" method="post">First Name:
-        <input type="text" name="First Name" required>Last Name:
-        <input type="text" name="Last Name" required>Email address:
-        <input type="email" name="email" required>Product:
-        <input type="text" value="Pro" name="permalink" required>
-        <input type="submit" value="Submit">
+<body>   
+    <form name="input" action="issue" method="post">
+    <fieldset class="license-info">
+        <label>
+        First Name:
+        <input type="text" name="First Name" required>
+        </label>
+        <label>
+        Last Name
+        <input type="text" name="Last Name" required>
+        </label>
+        <label>
+        Email address
+        <input type="email" name="email" required>
+        </label>
+        <label>
+        Product
+        <input type="text" name="permalink">
+        </label>                
+    </fieldset>
+    <fieldset class="license-action">
+        <input class="btn" type="submit" value="Submit">
+    </fieldset>
     </form>
+    
 </body>
 
 </html>
