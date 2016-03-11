@@ -41,7 +41,7 @@ function send(doc, license, collection) {
 		to: toAddress, // list of receivers
 		bcc: username,
 		replyTo: toAddress,
-		subject: "Your " + doc.product + " License", // Subject line
+		subject: "Your " + doc.product + " (" + doc.edition + ") License", // Subject line
 		text: emailText, // plaintext body	
 		html: emailHtml // html body
 	};    
