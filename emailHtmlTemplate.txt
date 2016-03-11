@@ -25,8 +25,8 @@ Your {{=it.product}} license key has arrived.
 <br>
 <br>Contact
 <br>======================================================
-<br>{{=it.product}} website:
-<br>{{=it.website}}
+<br>{{=it.product}} website: {{=it.website}}
 <br>
 <br>For technical support or any other questions related to this email, please contact:
 {{=it.support}}
+<br>======================================================
