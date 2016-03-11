@@ -1,4 +1,5 @@
-KeyNode is a Node.js application to issue and verify software license keys. It uses MongoDB and SendGrid services.
+KeyNode is a web application and api to issue and verify software license keys.
+More background information in this blog post - http://www.tewari.info/2016/03/10/keynode-with-node-js-and-microsoft-azure/
 
 =========================================================
 
