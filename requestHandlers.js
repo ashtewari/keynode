@@ -21,7 +21,7 @@ function issue(response, request, postedData) {
 	q.write(parsedInput);
 	
     response.writeHead(200, {"Content-Type": "text/html"});
-    response.write("license request received.");
+    response.write("Your license request has been received. You will receive your license key in the email. </br>Thanks.");
     response.end();
   };
 
