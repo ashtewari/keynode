@@ -35,8 +35,8 @@
     </fieldset>
     <div class="license-header">
         <label id="result"></label>
-    </div>
-    </form>    
+    </div>     
+    </form>   
         <script>
             /* attach a submit handler to the form */
             $("#licenseRequestForm").submit(function(event) {
@@ -50,11 +50,21 @@
                     url = $form.attr('action');
 
                 /* Send the data using post */
-                var posting = $.post(url, $('#licenseRequestForm').serialize());
+                var array = $("#licenseRequestForm").serializeArray();
+                var json = {};
+    
+                jQuery.each(array, function() {
+                    json[this.name] = this.value || '';
+                });
+                
+                var postData = JSON.stringify(json); 
+                console.log(postData);
+                
+                var posting = $.post(url, postData);
 
                 /* Put the results in a div */
                 posting.done(function(data) {                    
-                    $("#result").empty().append(data);
+                    $("#result").empty().append(data.status);
                     $("#licenseRequestForm").trigger('reset');
                 });
             });

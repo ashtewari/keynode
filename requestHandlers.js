@@ -1,4 +1,3 @@
-var querystring = require("querystring");
 var q = require("./queue");
 
 var fs = require('fs');
@@ -16,12 +15,15 @@ function start(response) {
 function issue(response, request, postedData) {
 	console.log("Request handler 'issue' was called.");
 
-	var parsedInput = querystring.parse(postedData);
+    var parsedInput = JSON.parse(postedData);
 
 	q.write(parsedInput);
 	
-    response.writeHead(200, {"Content-Type": "text/html"});
-    response.write("Your license request has been received. You will receive your license key in the email. </br>Thanks.");
+    var rJson = {};
+    rJson["status"] = "Your license request has been received. You will receive your license key in the email. </br>Thanks.";
+    
+    response.writeHead(200, {"Content-Type": "application/json"});
+    response.write(JSON.stringify(rJson));
     response.end();
   };
 
